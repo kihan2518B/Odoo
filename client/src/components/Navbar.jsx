@@ -110,6 +110,7 @@ function Header({
               Profile
             </Link>
             <Link to={"/organisation"} className="text-decoration-none d-flex align-items-center link-light">Organisation</Link>
+            <Link to={"/member"} className="text-decoration-none d-flex align-items-center link-light">Members</Link>
             <Button
               className="bg-transparent border-0"
               style={{ width: "fit-content" }}

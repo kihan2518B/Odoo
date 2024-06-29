@@ -6,6 +6,7 @@ import Register from "./components/Register";
 import { Toaster } from "react-hot-toast";
 import OrganisationForm from "./components/OrganisationForm";
 import Login from "./components/Login";
+import EmployeeList from "./components/Member";
 import Profile from "./components/Profile";
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -58,6 +59,12 @@ const App = () => {
                 setTasks={setTasks}
                 taskTitle={taskTitle}
               />
+            }
+          />
+          <Route
+            path="/member"
+            element={
+              <EmployeeList />
             }
           />
           <Route
