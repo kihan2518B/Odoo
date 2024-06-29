@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 import Register from "./components/Register";
 import { Toaster } from "react-hot-toast";
 import axios from "axios";
+import EmployeeList from "./components/Member"
 import Login from "./components/Login";
 import Profile from "./components/Profile";
 const App = () => {
@@ -58,6 +59,12 @@ const App = () => {
                 setTasks={setTasks}
                 taskTitle={taskTitle}
               />
+            }
+          />
+          <Route
+            path="/member"
+            element={
+              <EmployeeList/>
             }
           />
           <Route

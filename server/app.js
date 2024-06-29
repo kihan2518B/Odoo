@@ -13,7 +13,7 @@ dotenv.config({ path: "./config/config.env" });
 
 // Configure CORS
 const corsOptions = {
-  origin: "http://localhost:5174", // Allow requests from this origin
+  origin: "http://localhost:5173", // Allow requests from this origin
   credentials: true, // Allow sending cookies with the request
 };
 
