@@ -19,14 +19,7 @@ const userSchema = new mongoose.Schema({
     maxLength: [32, "Password cannot exceed 32 characters!"],
     select: false,
   },
-  Admin: {
-    type: Boolean,
-    default: false,
-  },
-  online: {
-    type: Boolean,
-    default: false,
-  },
+  
 });
 
 userSchema.pre("save", async function () {
