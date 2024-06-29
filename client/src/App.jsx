@@ -4,7 +4,7 @@ import Home from "./components/Home";
 import Navbar from "./components/Navbar";
 import Register from "./components/Register";
 import { Toaster } from "react-hot-toast";
-import axios from "axios";
+import OrganisationForm from "./components/OrganisationForm";
 import Login from "./components/Login";
 import Profile from "./components/Profile";
 const App = () => {
@@ -82,6 +82,7 @@ const App = () => {
             path="/profile"
             element={<Profile user={user} isAuthenticated={isAuthenticated} />}
           />
+          <Route path="/organisation" element={<OrganisationForm />} />
         </Routes>
         <Toaster />
       </Router>

@@ -20,6 +20,8 @@
     "express-fileupload": "^1.4.3",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.1.2",
+    "nodemo": "^1.0.0",
+    "nodemon": "^3.1.4",
     "validator": "^13.11.0"
   }
 }

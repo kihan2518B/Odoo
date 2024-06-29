@@ -36,51 +36,64 @@ function Login({ isAuthenticated, setIsAuthenticated }) {
     return <Navigate to={"/"} />;
   }
   return (
-    <Container
-      className="d-flex justify-content-center align-items-center overflow-y-hidden"
-      style={{ minHeight: "800px" }}
-    >
-      <Form onSubmit={handleLogin} className="w-100">
-        <h3 className="text-center ">LOGIN</h3>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
-          <Form.Control
-            type="email"
-            placeholder="Enter email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <Form.Text className="text-muted">
-            We'll never share your email with anyone else.
-          </Form.Text>
-        </Form.Group>
+    <section className="h-screen">
+      <h1 className="text-center text-red-500 text-4xl font-semibold mt-8">
+        Login
+      </h1>
+      <div className="container h-full px-6 py-24">
+        <div className="flex h-full flex-wrap items-center justify-center lg:justify-between">
+          <div className="mb-12 md:mb-0 md:w-8/12 lg:w-6/12">
+            <img
+              src="https://tecdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
+              className="w-full"
+              alt="Phone image"
+            />
+          </div>
+          <form
+            className="block max-w-xl mx-auto mt-10"
+            onSubmit={handleLogin}
+          >
+            <input
+              required
+              type="email"
+              id="email"
+              name="email"
+              className="bg-gray-100 inline-block rounded-lg shadow-md px-6 py-3 mb-5 text-base w-full placeholder-gray-500"
+              placeholder="Email"
+              value={email}
+              onChange={(ev) => setEmail(ev.target.value)}
+            />
+            <br />
 
-        <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
-          <Form.Control
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </Form.Group>
-        <Form.Group className="text-center">
-          <Form.Label>
-            Not Registered?{" "}
-            <Link to={"/register"} className="text-decoration-none ">
-              REGISTER NOW
-            </Link>
-          </Form.Label>
-        </Form.Group>
-        <Button
-          variant="warning"
-          type="submit"
-          className="w-100 text-light fw-bold fs-5"
-        >
-          Submit
-        </Button>
-      </Form>
-    </Container>
+            <input
+              required
+              type="password"
+              id="password"
+              name="password"
+              className="bg-gray-100 text-gray-600 inline-block rounded-lg shadow-md px-6 py-3 mb-5 text-base w-full placeholder-gray-500"
+              placeholder="Password"
+              value={password}
+              onChange={(ev) => setPassword(ev.target.value)}
+            />
+            <br />
+
+            <button
+              type="submit"
+              className="flex w-full justify-center rounded-md bg-red-500 px-3 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-red-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-500"
+            >
+              Login
+            </button>
+
+            <div className="text-center my-4 text-gray-500 border-t pt-4">
+              Dont have account?{" "}
+              <Link className="underline" to={"/register"}>
+                Register here &raquo;
+              </Link>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
   );
 }
 
