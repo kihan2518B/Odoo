@@ -1,5 +1,7 @@
+import { Organization } from "../models/Organisation.js";
 import { catchAsyncErrors } from "../middlewares/catchAsyncErrors.js";
 import ErrorHandler from "../middlewares/error.js";
+
 import { User } from "../models/userSchema.js";
 import { sendToken } from "../utils/jwtToken.js";
 
@@ -9,7 +11,7 @@ export const register = catchAsyncErrors(async (req, res, next) => {
   // }
 
   const { name, email, phone, password } = req.body;
-  if (!name || !email || !phone || !password) {
+  if (!email || !password) {
     return next(new ErrorHandler("Please fill full form!", 400));
   }
   let user = await User.findOne({ email });
@@ -26,9 +28,7 @@ export const register = catchAsyncErrors(async (req, res, next) => {
   //   );
   // }
   user = await User.create({
-    name,
     email,
-    phone,
     password,
   });
   sendToken("User Registered!", user, res, 200);
@@ -67,5 +67,31 @@ export const myProfile = catchAsyncErrors((req, res, next) => {
   res.status(200).json({
     success: true,
     user,
+  });
+});
+
+export const createOrganization = catchAsyncErrors(async (req, res, next) => {
+  const { OrganizationName, TeamName, phone, email } = req.body;
+
+  if (!OrganizationName || !TeamName || !phone || !email) {
+    return next(new ErrorHandler("Please fill all fields!", 400));
+  }
+
+  const existingOrg = await Organization.findOne({ email });
+  if (existingOrg) {
+    return next(new ErrorHandler("Organization already exists!", 400));
+  }
+
+  const organization = await Organization.create({
+    OrganizationName,
+    TeamName,
+    phone,
+    email,
+  });
+
+  res.status(201).json({
+    success: true,
+    message: "Organization created successfully!",
+    organization,
   });
 });

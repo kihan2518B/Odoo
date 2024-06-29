@@ -82,7 +82,7 @@ function Header({
         <Navbar.Brand href="#home">TASK MANAGER</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
+          <Nav className="me-auto flex gap-2">
             <Link
               to={"/"}
               className="text-decoration-none d-flex align-items-center link-light  "
@@ -109,6 +109,7 @@ function Header({
             >
               Profile
             </Link>
+            <Link to={"/organisation"} className="text-decoration-none d-flex align-items-center link-light">Organisation</Link>
             <Button
               className="bg-transparent border-0"
               style={{ width: "fit-content" }}
